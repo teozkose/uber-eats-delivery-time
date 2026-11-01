@@ -1,0 +1,139 @@
+{
+  "dataset": {
+    "train_rows": 32282,
+    "test_rows": 8071,
+    "n_features": 31,
+    "target_mean_min": 26.32,
+    "target_std_min": 9.37
+  },
+  "models": {
+    "linear_regression": {
+      "r2": 0.5997,
+      "mae": 4.727,
+      "rmse": 5.934
+    },
+    "random_forest": {
+      "r2": 0.8354,
+      "mae": 3.071,
+      "rmse": 3.805
+    },
+    "xgboost": {
+      "r2": 0.838,
+      "mae": 3.048,
+      "rmse": 3.776
+    }
+  },
+  "importance": {
+    "shap_top": [
+      {
+        "feature": "courier_age",
+        "mean_abs_shap_min": 2.58
+      },
+      {
+        "feature": "distance_km",
+        "mean_abs_shap_min": 2.313
+      },
+      {
+        "feature": "traffic_Low",
+        "mean_abs_shap_min": 2.035
+      },
+      {
+        "feature": "courier_rating",
+        "mean_abs_shap_min": 1.986
+      },
+      {
+        "feature": "vehicle_condition",
+        "mean_abs_shap_min": 1.917
+      },
+      {
+        "feature": "weather_Sunny",
+        "mean_abs_shap_min": 0.956
+      },
+      {
+        "feature": "weather_Fog",
+        "mean_abs_shap_min": 0.757
+      },
+      {
+        "feature": "traffic_Jam",
+        "mean_abs_shap_min": 0.748
+      },
+      {
+        "feature": "weather_Cloudy",
+        "mean_abs_shap_min": 0.723
+      },
+      {
+        "feature": "multiple_deliveries",
+        "mean_abs_shap_min": 0.643
+      },
+      {
+        "feature": "traffic_Medium",
+        "mean_abs_shap_min": 0.263
+      },
+      {
+        "feature": "traffic_High",
+        "mean_abs_shap_min": 0.198
+      }
+    ],
+    "permutation_top": [
+      {
+        "feature": "distance_km",
+        "r2_drop": 0.283
+      },
+      {
+        "feature": "courier_age",
+        "r2_drop": 0.2221
+      },
+      {
+        "feature": "courier_rating",
+        "r2_drop": 0.1724
+      },
+      {
+        "feature": "traffic_Low",
+        "r2_drop": 0.161
+      },
+      {
+        "feature": "vehicle_condition",
+        "r2_drop": 0.1577
+      },
+      {
+        "feature": "weather_Cloudy",
+        "r2_drop": 0.0986
+      },
+      {
+        "feature": "weather_Fog",
+        "r2_drop": 0.0967
+      },
+      {
+        "feature": "weather_Sunny",
+        "r2_drop": 0.0954
+      },
+      {
+        "feature": "multiple_deliveries",
+        "r2_drop": 0.0645
+      },
+      {
+        "feature": "traffic_Jam",
+        "r2_drop": 0.0275
+      },
+      {
+        "feature": "traffic_Medium",
+        "r2_drop": 0.0258
+      },
+      {
+        "feature": "festival_No",
+        "r2_drop": 0.0115
+      }
+    ],
+    "top5_overlap": 5,
+    "shap_sample_rows": 3000
+  },
+  "pca": {
+    "n_components_95pct": 22,
+    "n_features": 31,
+    "xgboost_on_components": {
+      "r2": 0.7775,
+      "mae": 3.51,
+      "rmse": 4.424
+    }
+  }
+}

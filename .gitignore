@@ -1,0 +1,12 @@
+data/*
+!data/download.py
+!data/README.md
+models/
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.DS_Store
+.env
+*.pdf
+*.docx

@@ -1,1 +1,1 @@
-Raw data is not committed. `python data/download.py` fetches `cleaned_data.csv` (about 9 MB, 43,862 delivery records from the public Uber Eats delivery-time dataset, MIT license) into this folder.
+Raw data is not committed. `make data` (or `python data/download.py`) fetches `cleaned_data.csv` (about 9 MB, 43,862 delivery records from the public Uber Eats delivery-time dataset, MIT licence) into this folder; `make features` writes `features.parquet` next to it.

@@ -1,0 +1,51 @@
+# Paths and parameters for the delivery-time pipeline. Paths are relative to the repo root.
+data:
+  url: https://raw.githubusercontent.com/liamarguedas/uber-eats-delivery-time/main/data/cleaned_data.csv
+  raw: data/cleaned_data.csv
+  table: data/features.parquet
+  min_raw_bytes: 1000000
+
+paths:
+  results: results
+  docs: docs
+
+cleaning:
+  max_distance_km: 50        # longer trips are coordinate errors, not food deliveries
+  max_pickup_delay_min: 60   # pickup gaps above an hour are data-entry errors
+  peak_hours: [12, 13, 19, 20, 21]
+
+features:
+  distance_bands_km: [0, 3, 6, 9, 12, 50]
+
+validation:
+  seed: 42
+  random_folds: 5
+  group_folds: 5
+  holdout_start: "2022-03-28"   # orders on or after this date form the time-ordered test set
+
+models:
+  xgboost:
+    n_estimators: 500
+    learning_rate: 0.05
+    max_depth: 6
+    subsample: 0.8
+    colsample_bytree: 0.8
+    min_child_weight: 3
+  tuning:
+    n_iter: 12
+    folds: 3
+  interval:
+    lower: 0.10
+    upper: 0.90
+    max_iter: 400
+
+evaluation:
+  n_boot: 1000
+  off_by_minutes: 10
+  permutation_repeats: 10
+  shap_rows: 2000
+
+business:
+  refund_per_late_order: 5.0   # credit issued when a delivery misses the promised ETA
+  grace_minutes: 5             # a delivery is late if it arrives more than this after the promise
+  grace_sensitivity: [0, 5, 10]

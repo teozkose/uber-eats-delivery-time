@@ -1,14 +1,11 @@
-"""Download the cleaned Uber Eats delivery dataset (MIT-licensed copy published on GitHub)."""
-import os
+"""Fetch the raw delivery CSV into data/ (not committed). Same as `make data`."""
+
 import sys
-import urllib.request
+from pathlib import Path
 
-URL = "https://raw.githubusercontent.com/liamarguedas/uber-eats-delivery-time/main/data/cleaned_data.csv"
-DEST = os.path.join(os.path.dirname(os.path.abspath(__file__)), "cleaned_data.csv")
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
-if os.path.exists(DEST) and os.path.getsize(DEST) > 1_000_000:
-    print(f"already present: {DEST}")
-    sys.exit(0)
-print(f"downloading {URL}")
-urllib.request.urlretrieve(URL, DEST)
-print(f"saved {DEST} ({os.path.getsize(DEST) / 1e6:.1f} MB)")
+from eta.pipeline import main  # noqa: E402
+
+if __name__ == "__main__":
+    main(["data"])

@@ -1,0 +1,36 @@
+{
+  "rows": 43862,
+  "columns": 20,
+  "couriers": 1320,
+  "date_min": "2022-02-11",
+  "date_max": "2022-04-06",
+  "order_days": 44,
+  "zero_or_negative_coords": 3665,
+  "cleaning": [
+    {
+      "step": "drop zero restaurant/drop-off coordinates",
+      "rows_before": 43862,
+      "rows_after": 40353,
+      "dropped": 3509
+    },
+    {
+      "step": "drop trips over 50 km",
+      "rows_before": 40353,
+      "rows_after": 40353,
+      "dropped": 0
+    },
+    {
+      "step": "drop rows with unparseable order or pickup times",
+      "rows_before": 40353,
+      "rows_after": 40353,
+      "dropped": 0
+    },
+    {
+      "step": "drop pickup delays over 60 min",
+      "rows_before": 40353,
+      "rows_after": 40353,
+      "dropped": 0
+    }
+  ],
+  "modelling_rows": 40353
+}
